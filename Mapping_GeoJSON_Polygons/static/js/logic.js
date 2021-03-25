@@ -101,26 +101,27 @@ let torontoHoods = "https://raw.githubusercontent.com/Mikeblanchard/Mapping_Eart
 //  // Then we add our 'graymap' tile layer to the map.
 //  streets.addTo(map);
  
-//  // Create a style for the lines.
-//  let myStyle = {
-//      color: "#ffffa1",
-//      weight: 2
-//  }
+ // Create a style for the lines.
+ let myStyle = {
+     color: "yellow",
+     weight: 1
+ }
  
  // Grabbing our GeoJSON data.
  d3.json(torontoHoods).then(function(data) {
      console.log(data);
  
    // Creating a GeoJSON layer with the retrieved data.
-   L.geoJson(data).addTo(map);
-//        style: myStyle,
-//        onEachFeature: function(feature, layer) {
-//            layer.bindPopup("<h3> Airline: " + feature.properties.airline + "</h3> <hr><h3> Destination: " + feature.properties.dst + "</h3>");
-//        }
-//    })
    
-   
-   
-//    .addTo(map);
- });
- 
+
+L.geoJson(data, {
+    style: myStyle,
+    onEachFeature: function(feature, layer) {
+        layer.bindPopup("<h3> Neighbourhoods: " + feature.properties.AREA_NAME + "</h3> <hr><h3> Destination: " + feature.properties.dst + "</h3>");
+    }
+})
+
+
+
+.addTo(map);
+});
