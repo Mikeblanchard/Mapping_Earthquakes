@@ -117,7 +117,7 @@ let torontoHoods = "https://raw.githubusercontent.com/Mikeblanchard/Mapping_Eart
 L.geoJson(data, {
     style: myStyle,
     onEachFeature: function(feature, layer) {
-        layer.bindPopup("<h3> Neighbourhoods: " + feature.properties.AREA_NAME + "</h3> <hr><h3> Destination: " + feature.properties.dst + "</h3>");
+        layer.bindPopup("<h3> Neighbourhood: " + feature.properties.AREA_NAME + "</h3>");
     }
 })
 
