@@ -103,27 +103,27 @@ let torontoHoods = "https://raw.githubusercontent.com/Mikeblanchard/Mapping_Eart
 
 // This function returns the style data for each of the earthquakes we plot on
 // the map. We pass the magnitude of the earthquake into a function
-// // to calculate the radius.
-// function styleInfo(feature) {
-//     return {
-//       opacity: 1,
-//       fillOpacity: 1,
-//       fillColor: "#ffae42",
-//       color: "#000000",
-//       radius: getRadius(),
-//       stroke: true,
-//       weight: 0.5
-//     };
-//   }
+// to calculate the radius.
+function styleInfo(feature) {
+    return {
+      opacity: 1,
+      fillOpacity: 1,
+      fillColor: "#ffae42",
+      color: "#000000",
+      radius: getRadius(),
+      stroke: true,
+      weight: 0.5
+    };
+  }
 
   // This function determines the radius of the earthquake marker based on its magnitude.
 // Earthquakes with a magnitude of 0 will be plotted with a radius of 1.
-// function getRadius(magnitude) {
-//     if (magnitude === 0) {
-//       return 1;
-//     }
-//     return magnitude * 4;
-//   }
+function getRadius(magnitude) {
+    if (magnitude === 0) {
+      return 1;
+    }
+    return magnitude * 4;
+  }
  
 //  // Create a style for the lines.
 //  let myStyle = {
@@ -144,7 +144,7 @@ L.geoJson(data, {
                 return L.circleMarker(latlng);
             },
           // We set the style for each circleMarker using our styleInfo function.
-        // style: styleInfo
+        style: styleInfo
         }).addTo(map);
     });
 
